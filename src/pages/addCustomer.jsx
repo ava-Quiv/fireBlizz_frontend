@@ -25,7 +25,7 @@ const AddCustomer = () => {
 
     try {
       // Make a POST request to your backend API
-      const response = await axios.post('http://localhost:5000/add/customer/addCustomer', customerData);
+      const response = await axios.post('https://firebliss.onrender.com/add/customer/addCustomer', customerData);
 
       // On success, reset the form and display success message
       setSuccess('Customer added successfully!');

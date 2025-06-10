@@ -10,7 +10,7 @@ const AdminList = () => {
   useEffect(() => {
     const fetchAdmins = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/auth/admins'); // Your API URL
+        const response = await axios.get('https://firebliss.onrender.com/api/auth/admins'); // Your API URL
         setAdmins(response.data); // Set the fetched data to the state
         setLoading(false); // Stop loading when data is fetched
       } catch (err) {

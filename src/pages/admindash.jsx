@@ -20,7 +20,7 @@ const AdminDash = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/addemp/countEmployee')
+      .get('https://firebliss.onrender.com/api/addemp/countEmployee')
       .then((response) => {
         setCountEmployee(response.data.count);
       })
@@ -32,7 +32,7 @@ const AdminDash = () => {
   useEffect(() => {
     const fetchCustomerCount = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/add/customer/countCustomer');
+        const response = await axios.get('https://firebliss.onrender.com/add/customer/countCustomer');
         setCustomerCount(response.data.totalCustomers);
       } catch (error) {
         setError('Error fetching customer count');
@@ -44,7 +44,7 @@ const AdminDash = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/addemp/recent-employees')
+      .get('https://firebliss.onrender.com/api/addemp/recent-employees')
       .then((response) => {
         setRecentEmployees(response.data);
       })
@@ -56,7 +56,7 @@ const AdminDash = () => {
   useEffect(() => {
     const fetchRecentCustomers = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/add/customer/recent-customers');
+        const response = await axios.get('https://firebliss.onrender.com/add/customer/recent-customers');
         setRecentCustomers(response.data);
       } catch (error) {
         setErrorCustomers(error.message);
@@ -70,7 +70,7 @@ const AdminDash = () => {
   useEffect(() => {
     const fetchRecentProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/report/commodities/first-four');
+        const response = await axios.get('https://firebliss.onrender.com/api/report/commodities/first-four');
         setRecentProducts(response.data);
       } catch (error) {
         console.error('Error fetching recent products:', error);
@@ -82,7 +82,7 @@ const AdminDash = () => {
   useEffect(() => {
     const fetchRecentServices = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/report/services/first-three');
+        const response = await axios.get('https://firebliss.onrender.com/api/report/services/first-three');
         setRecentServices(response.data);
       } catch (error) {
         console.error('Error fetching recent services:', error);
@@ -93,7 +93,7 @@ const AdminDash = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/report/total-products')
+      .get('https://firebliss.onrender.com/api/report/total-products')
       .then((response) => {
         setProductCount(response.data.totalProducts);
       })
@@ -104,7 +104,7 @@ const AdminDash = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/report/services/count')
+      .get('https://firebliss.onrender.com/api/report/services/count')
       .then((response) => {
         setCountServices(response.data.countServices);
       })
@@ -115,7 +115,7 @@ const AdminDash = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/report/total-revenue')
+      .get('https://firebliss.onrender.com/api/report/total-revenue')
       .then((response) => {
         setTotalRevenue(response.data.totalRevenue);
       })

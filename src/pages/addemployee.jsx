@@ -25,7 +25,7 @@ const AddEmployee = () => {
 
     try {
       // Make a POST request to your backend API to add the employee
-      const response = await axios.post('http://localhost:5000/api/addemp/addEmployee', employeeData);
+      const response = await axios.post('https://firebliss.onrender.com/api/addemp/addEmployee', employeeData);
 
       // On success, reset the form and display success message
       setSuccess('Employee added successfully!');

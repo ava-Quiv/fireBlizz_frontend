@@ -9,11 +9,11 @@ const Employee = () => {
 
   // Fetch employees based on the status filter
   useEffect(() => {
-    let url = 'http://localhost:5000/api/addemp'; // Default to all employees
+    let url = 'https://firebliss.onrender.com/api/addemp'; // Default to all employees
     if (statusFilter === 'active') {
-      url = 'http://localhost:5000/api/addemp/active';
+      url = 'https://firebliss.onrender.com/api/addemp/active';
     } else if (statusFilter === 'suspended') {
-      url = 'http://localhost:5000/api/addemp/suspended';
+      url = 'https://firebliss.onrender.com/api/addemp/suspended';
     }
 
     axios
@@ -29,7 +29,7 @@ const Employee = () => {
   // Handle activation of suspended employee
   const handleActivate = (id) => {
     axios
-      .put(`http://localhost:5000/api/addemp/updateStatus/${id}`, { status: 'active' })
+      .put(`https://firebliss.onrender.com/api/addemp/updateStatus/${id}`, { status: 'active' })
       .then((response) => {
         console.log(response.data.message);
         // Update the customers state to reflect the change
@@ -47,7 +47,7 @@ const Employee = () => {
   // Handle suspension of active employee
   const handleSuspend = (id) => {
     axios
-      .put(`http://localhost:5000/api/addemp/updateStatus/${id}`, { status: 'suspended' })
+      .put(`https://firebliss.onrender.com/api/addemp/updateStatus/${id}`, { status: 'suspended' })
       .then((response) => {
         console.log(response.data.message);
         // Update the customers state to reflect the change
@@ -65,7 +65,7 @@ const Employee = () => {
   // Handle deletion of an employee
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:5000/api/addemp/deleteEmployee/${id}`)
+      .delete(`https://firebliss.onrender.com/api/addemp/deleteEmployee/${id}`)
       .then((response) => {
         console.log(response.data.message);
         // Remove the deleted employee from the state

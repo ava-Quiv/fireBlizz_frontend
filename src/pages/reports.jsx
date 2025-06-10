@@ -23,11 +23,11 @@ export default function CompanyReport() {
       }
     };
 
-    fetchData('http://localhost:5000/api/report/customers/stats', setCustomerStats, 'Customer Stats');
-    fetchData('http://localhost:5000/api/report/commodities/report', setCommodityReport, 'Commodity Report');
-    fetchData('http://localhost:5000/api/report/services/report', setServiceReport, 'Service Report');
-    fetchData('http://localhost:5000/api/report/bookings/report', setBookingReport, 'Booking Report');
-    fetchData('http://localhost:5000/api/report/reports/service-bookings', setServiceBookingReport, 'Service Booking Report');
+    fetchData('https://firebliss.onrender.com/api/report/customers/stats', setCustomerStats, 'Customer Stats');
+    fetchData('https://firebliss.onrender.com/api/report/commodities/report', setCommodityReport, 'Commodity Report');
+    fetchData('https://firebliss.onrender.com/api/report/services/report', setServiceReport, 'Service Report');
+    fetchData('https://firebliss.onrender.com/api/report/bookings/report', setBookingReport, 'Booking Report');
+    fetchData('https://firebliss.onrender.com/api/report/reports/service-bookings', setServiceBookingReport, 'Service Booking Report');
   }, []);
 
   if (error)
