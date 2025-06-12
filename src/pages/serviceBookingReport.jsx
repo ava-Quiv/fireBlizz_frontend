@@ -9,7 +9,7 @@ const AllBookings = () => {
 
   const fetchBookings = async () => {
     try {
-      const res = await axios.get(`${BASE_URL}/bookings`);
+      const res = await axios.get(`${BASE_URL}/service/bookings/report`);
       setBookings(res.data);
     } catch (error) {
       console.error('Failed to fetch bookings:', error);
