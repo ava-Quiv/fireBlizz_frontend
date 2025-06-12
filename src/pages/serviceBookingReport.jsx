@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const BASE_URL = 'https://firebliss.onrender.com'; // Change if needed
+const BASE_URL = 'https://https://firebliss-1.onrender.com'; // Change if needed
 
 const AllBookings = () => {
   const [bookings, setBookings] = useState([]);

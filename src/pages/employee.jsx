@@ -9,7 +9,7 @@ const Employee = () => {
 
   // Fetch employees based on the status filter
   useEffect(() => {
-    let url = 'https://firebliss.onrender.com/api/addemp'; // Default to all employees
+    let url = 'https://firebliss-1.onrender.com/api/addemp'; // Default to all employees
     if (statusFilter === 'active') {
       url = 'https://firebliss.onrender.com/api/addemp/active';
     } else if (statusFilter === 'suspended') {

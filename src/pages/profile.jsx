@@ -11,7 +11,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchAdminProfile = async () => {
       try {
-        const response = await axios.get(`https://firebliss.onrender.com/api/auth/profile/${id}`);
+        const response = await axios.get(`https://https://firebliss-1.onrender.com/api/auth/profile/${id}`);
         setAdmin(response.data);
       } catch (error) {
         setError('Failed to fetch admin profile.');

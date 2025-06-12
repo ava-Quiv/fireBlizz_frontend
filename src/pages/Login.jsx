@@ -14,7 +14,7 @@ const Login = () => {
 
     if (email && password) {
       try {
-        const response = await fetch('https://firebliss.onrender.com/api/auth/login', {
+        const response = await fetch('https://firebliss-1.onrender.com/api/auth/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

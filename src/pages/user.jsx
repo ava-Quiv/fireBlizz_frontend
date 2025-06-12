@@ -8,16 +8,16 @@ const CustomersDashboard = () => {
 
   // Fetch customers based on the filter (status)
   useEffect(() => {
-    let url = 'https://firebliss.onrender.com/add/customer/seeCustomer'; // Default URL for 'all' customers
+    let url = 'https://firebliss-1.onrender.com/add/customer/seeCustomer'; // Default URL for 'all' customers
 
     if (filter === 'active') {
-      url = 'https://firebliss.onrender.com/add/customer/active';
+      url = 'https://firebliss-1.onrender.com/add/customer/active';
     } else if (filter === 'rejected') {
-      url = 'https://firebliss.onrender.com/add/customer/rejected';
+      url = 'https://firebliss-1.onrender.com/add/customer/rejected';
     } else if (filter === 'suspended') {
-      url = 'https://firebliss.onrender.com/add/customer/suspended';
+      url = 'https://firebliss-1.onrender.com/add/customer/suspended';
     } else if (filter === 'pending') {
-      url = 'https://firebliss.onrender.com/add/customer/pending';
+      url = 'https://firebliss-1.onrender.com/add/customer/pending';
     }
 
     axios
@@ -44,7 +44,7 @@ const CustomersDashboard = () => {
   // Handle Approve action
   const handleApprove = async (customerId) => {
     try {
-      await axios.put(`https://firebliss.onrender.com/add/customer/approve/${customerId}`);
+      await axios.put(`https://firebliss-1.onrender.com/add/customer/approve/${customerId}`);
       setCustomers(customers.map(customer =>
         customer._id === customerId ? { ...customer, status: 'active' } : customer
       ));
@@ -56,7 +56,7 @@ const CustomersDashboard = () => {
   // Handle Reject action
   const handleReject = async (customerId) => {
     try {
-      await axios.put(`https://firebliss.onrender.com/add/customer/reject/${customerId}`);
+      await axios.put(`https://firebliss-1.onrender.com/add/customer/reject/${customerId}`);
       setCustomers(customers.map(customer =>
         customer._id === customerId ? { ...customer, status: 'rejected' } : customer
       ));
@@ -68,7 +68,7 @@ const CustomersDashboard = () => {
   // Handle Suspend action
   const handleSuspend = async (customerId) => {
     try {
-      await axios.put(`https://firebliss.onrender.com/add/customer/suspend/${customerId}`);
+      await axios.put(`https://firebliss-1.onrender.com/add/customer/suspend/${customerId}`);
       setCustomers(customers.map(customer =>
         customer._id === customerId ? { ...customer, status: 'suspended' } : customer
       ));
@@ -80,7 +80,7 @@ const CustomersDashboard = () => {
   // Handle Reactivate action
   const handleReactivate = async (customerId) => {
     try {
-      await axios.put(`https://firebliss.onrender.com/add/customer/reactivate/${customerId}`);
+      await axios.put(`https://firebliss-1.onrender.com/add/customer/reactivate/${customerId}`);
       setCustomers(customers.map(customer =>
         customer._id === customerId ? { ...customer, status: 'active' } : customer
       ));
