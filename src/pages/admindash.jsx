@@ -139,6 +139,12 @@ const AdminDash = () => {
           <li className="mb-4">
             <Link to="/reports" className="hover:text-green-300">Progress Report</Link>
           </li>
+          <li className="mb-4">
+            <Link to="/productReport" className="hover:text-green-300">product bookings</Link>
+          </li>
+          <li className="mb-4">
+            <Link to="/serviceBookingReport" className="hover:text-green-300">booked services</Link>
+          </li>
           <li>
             <Link to="/Login" className="hover:text-green-300">Logout</Link>
           </li>

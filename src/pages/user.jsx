@@ -3,22 +3,33 @@ import axios from 'axios';
 
 const CustomersDashboard = () => {
   const [customers, setCustomers] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [filter, setFilter] = useState('all'); // Default filter is 'all'
+  const [searchQuery, setSearchQuery] = useState(''); // State for search query
 
-  // Fetch all customers (no filter logic)
+  // Fetch customers based on the filter (status)
   useEffect(() => {
-    const url = 'https://firebliss.onrender.com/add/customer/seeCustomer';
+    let url = 'https://firebliss.onrender.com/add/customer/seeCustomer'; // Default URL for 'all' customers
+
+    if (filter === 'active') {
+      url = 'https://firebliss.onrender.com/add/customer/active';
+    } else if (filter === 'rejected') {
+      url = 'https://firebliss.onrender.com/add/customer/rejected';
+    } else if (filter === 'suspended') {
+      url = 'https://firebliss.onrender.com/add/customer/suspended';
+    } else if (filter === 'pending') {
+      url = 'https://firebliss.onrender.com/add/customer/pending';
+    }
 
     axios
       .get(url)
       .then((response) => {
-        console.log('Fetched customers:', response.data);
+        console.log('Fetched customers:', response.data); // Debug log
         setCustomers(response.data);
       })
       .catch((error) => {
         console.error('Error fetching customers:', error);
       });
-  }, []);
+  }, [filter]);
 
   // Filter customers based on search query
   const filteredCustomers = customers.filter((customer) => {
@@ -30,6 +41,7 @@ const CustomersDashboard = () => {
     );
   });
 
+  // Handle Approve action
   const handleApprove = async (customerId) => {
     try {
       await axios.put(`https://firebliss.onrender.com/add/customer/approve/${customerId}`);
@@ -41,6 +53,7 @@ const CustomersDashboard = () => {
     }
   };
 
+  // Handle Reject action
   const handleReject = async (customerId) => {
     try {
       await axios.put(`https://firebliss.onrender.com/add/customer/reject/${customerId}`);
@@ -52,6 +65,7 @@ const CustomersDashboard = () => {
     }
   };
 
+  // Handle Suspend action
   const handleSuspend = async (customerId) => {
     try {
       await axios.put(`https://firebliss.onrender.com/add/customer/suspend/${customerId}`);
@@ -63,6 +77,7 @@ const CustomersDashboard = () => {
     }
   };
 
+  // Handle Reactivate action
   const handleReactivate = async (customerId) => {
     try {
       await axios.put(`https://firebliss.onrender.com/add/customer/reactivate/${customerId}`);
@@ -77,6 +92,50 @@ const CustomersDashboard = () => {
   return (
     <div className="p-8">
       <h1 className="text-3xl font-semibold mb-6">Customers Dashboard</h1>
+
+      {/* Filter Buttons
+      <div className="mb-6">
+        <button
+          onClick={() => setFilter('all')}
+          className={`px-4 py-2 rounded-lg mr-2 ${
+            filter === 'all' ? 'bg-gray-700 text-white' : 'bg-gray-500 text-white hover:bg-gray-600'
+          }`}
+        >
+          All Customers
+        </button>
+        <button
+          onClick={() => setFilter('active')}
+          className={`px-4 py-2 rounded-lg mr-2 ${
+            filter === 'active' ? 'bg-green-700 text-white' : 'bg-green-500 text-white hover:bg-green-600'
+          }`}
+        >
+          Active Customers
+        </button>
+        <button
+          onClick={() => setFilter('rejected')}
+          className={`px-4 py-2 rounded-lg mr-2 ${
+            filter === 'rejected' ? 'bg-red-700 text-white' : 'bg-red-500 text-white hover:bg-red-600'
+          }`}
+        >
+          Rejected Customers
+        </button>
+        <button
+          onClick={() => setFilter('suspended')}
+          className={`px-4 py-2 rounded-lg mr-2 ${
+            filter === 'suspended' ? 'bg-yellow-700 text-white' : 'bg-yellow-500 text-white hover:bg-yellow-600'
+          }`}
+        >
+          Suspended Customers
+        </button>
+        <button
+          onClick={() => setFilter('pending')}
+          className={`px-4 py-2 rounded-lg ${
+            filter === 'pending' ? 'bg-blue-700 text-white' : 'bg-blue-500 text-white hover:bg-blue-600'
+          }`}
+        >
+          Pending Customers
+        </button>
+      </div> */}
 
       {/* Search Bar */}
       <div className="mb-6">

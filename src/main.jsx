@@ -10,6 +10,8 @@ import Employee from './pages/employee';
 import AddEmployee from './pages/addemployee';
 import AdminList from './pages/AdminList';
 import Report from './pages/reports';
+import ProductBookings from './pages/productReport';
+import AllBookings from './pages/serviceBookingReport'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -25,6 +27,8 @@ root.render(
       <Route path='addemployee' element={< AddEmployee/>} />
       <Route path='adminList' element={< AdminList/>}/>
       <Route path="/reports" element={< Report/>} />
+      <Route path="/productReport" element={<ProductBookings />} />
+      <Route path="/serviceBookingReport" element={< AllBookings/>} />
       
     </Routes>
   </Router>
